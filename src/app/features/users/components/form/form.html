@@ -1,0 +1,48 @@
+<!-- <h2 mat-dialog-title>{{ data ? 'Editar Usuario' : 'Crear Nuevo Usuario' }}</h2> -->
+<h2 mat-dialog-title>Crear Nuevo Usuario</h2>
+
+
+<form [formGroup]="userForm">
+    <mat-dialog-content class="form-container">
+
+        <div class="row-flex">
+            <mat-form-field appearance="outline" class="flex-grow">
+                <mat-label>Nombre</mat-label>
+                <input matInput formControlName="name" placeholder="Ej: Juan">
+                @if (userForm.get('name')?.hasError('required') && userForm.get('name')?.touched) {
+                    <mat-error>El nombre es obligatorio</mat-error>
+                }
+            </mat-form-field>
+        </div>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Correo Electrónico</mat-label>
+            <input matInput type="email" formControlName="email" placeholder="correo@ejemplo.com">
+            @if (userForm.get('email')?.hasError('email')) {
+                <mat-error>Ingrese un correo válido</mat-error>
+            }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Contraseña</mat-label>
+            <input matInput type="password" formControlName="password">
+        </mat-form-field>
+        
+
+        <div class="status-container">
+            <mat-slide-toggle formControlName="isActive" color="primary">
+                Usuario Activo
+            </mat-slide-toggle>
+        </div>
+
+    </mat-dialog-content>
+
+    <mat-dialog-actions align="end">
+        <button mat-button type="button" (click)="onCancel()">Cancelar</button>
+
+        <button mat-raised-button color="primary" (click)="onSave()" [disabled]="userForm.invalid">
+            <mat-icon>save</mat-icon>
+             Guardar 
+        </button>
+    </mat-dialog-actions>
+</form>

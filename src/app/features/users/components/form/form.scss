@@ -1,0 +1,35 @@
+.form-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 400px;
+  max-width: 600px;
+  padding-top: 10px;
+}
+
+.row-flex {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.flex-grow {
+  flex: 1;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.status-container {
+  margin: 15px 0;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.additional-selection {
+  opacity: 0.6;
+  font-size: 0.85em;
+  margin-left: 5px;
+}
