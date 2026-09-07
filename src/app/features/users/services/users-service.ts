@@ -30,30 +30,30 @@ export class UsersService {
     );
   }
 
-  // update(id: number, updatedUser: Partial<CreateUserDto>) {
-  //   console.log('updatedUser', updatedUser);
-  //   return this.http.put<UserModel>(`${this.apiUrl}/${id}`, updatedUser).pipe(
-  //     tap((updatedData) => {
-  //       console.log('entra');
+  update(id: string, updatedUser: Partial<CreateUserDto>) {
+    console.log('updatedUser', updatedUser);
+    return this.http.put<UserModel>(`${this.apiUrl}/${id}`, updatedUser).pipe(
+      tap((updatedData) => {
+        console.log('entra');
 
-  //       // Actualizamos la señal buscando el rol por ID y fusionando los cambios
-  //       this.userSignal.update(users =>
-  //         users.map(user => user.id === id ? { ...user, ...updatedData } : user)
-  //       );
-  //     })
-  //   );
-  // }
+        // Actualizamos la señal buscando el rol por ID y fusionando los cambios
+        this.userSignal.update(users =>
+          users.map(user => user.id === id ? { ...user, ...updatedData } : user)
+        );
+      })
+    );
+  }
 
-  // delete(id: number) {
-  //   return this.http.delete<void>(`${this.apiUrl}/${id}`).pipe(
-  //     tap(() => {
-  //       // Filtramos el arreglo para quitar el rol eliminado
-  //       this.userSignal.update(users =>
-  //         users.filter(user => user.id !== id)
-  //       );
-  //     })
-  //   );
-  // }
+  delete(id: string) {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`).pipe(
+      tap(() => {
+        // Filtramos el arreglo para quitar el rol eliminado
+        this.userSignal.update(users =>
+          users.filter(user => user.id !== id)
+        );
+      })
+    );
+  }
 
   // updateProfile(updatedUser: any) {
   //   // Apunta a tu profileApiUrl (ej: /profile) sin necesidad de pasarle un ID en la URL

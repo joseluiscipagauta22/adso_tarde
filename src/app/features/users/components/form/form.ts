@@ -52,7 +52,9 @@ export class UserForm {
   onSave() {
     if (this.userForm.invalid) return;
     const finalData = this.userForm.getRawValue();
-    this.saveProfile.emit(finalData);
+    // console.log('entra', finalData);
+    // this.saveProfile.emit(finalData);
+    this.dialogRef.close(finalData);
   }
 
   onCancel() {

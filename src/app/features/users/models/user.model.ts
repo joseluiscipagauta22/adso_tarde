@@ -1,7 +1,7 @@
 // import { RoleModel } from "../../roles/models/roles.model"; // O la ruta donde tengas Role
 
 export interface UserModel {
-  id: number;
+  id: string;
   name: string;
   email: string;
   isActive: boolean;

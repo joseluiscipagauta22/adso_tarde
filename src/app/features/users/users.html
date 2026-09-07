@@ -4,3 +4,9 @@
         Nuevo Usuario
     </button>
 </div>
+
+<app-table 
+    [users]="usersService.users()" 
+    (editUser)="handleEdit($event)" 
+    (deleteUser)="handleDelete($event)">
+</app-table>

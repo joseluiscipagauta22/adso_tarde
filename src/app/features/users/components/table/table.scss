@@ -1,0 +1,32 @@
+.table-container {
+  border-radius: 8px;
+  overflow: hidden;
+  background: #fff;
+  margin-top: 16px;
+  width: 100%;
+
+  table {
+    width: 100%;
+  }
+
+  // Estilo para los encabezados y celdas si deseas ajustar espaciados
+  th.mat-header-cell {
+    font-weight: 600;
+    color: rgba(0, 0, 0, 0.7);
+  }
+
+  // Estilos para el indicador de estado (Activo / Inactivo)
+  .badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    background-color: #ffebee;
+    color: #c62828;
+
+    &.active {
+      background-color: #e8f5e9;
+      color: #2e7d32;
+    }
+  }
+}
