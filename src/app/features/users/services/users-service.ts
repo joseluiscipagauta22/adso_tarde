@@ -32,7 +32,7 @@ export class UsersService {
 
   update(id: string, updatedUser: Partial<CreateUserDto>) {
     console.log('updatedUser', updatedUser);
-    return this.http.put<UserModel>(`${this.apiUrl}/${id}`, updatedUser).pipe(
+    return this.http.patch<UserModel>(`${this.apiUrl}/${id}`, updatedUser).pipe(
       tap((updatedData) => {
         console.log('entra');
 
